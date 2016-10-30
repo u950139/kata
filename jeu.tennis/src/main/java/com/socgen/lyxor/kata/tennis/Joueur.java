@@ -6,4 +6,6 @@ public interface Joueur {
 	int getPoints();
 
 	String getPseudo();
+
+	void resetScore();
 }

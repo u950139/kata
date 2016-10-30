@@ -36,4 +36,9 @@ public class JoueurImpl implements Joueur, Comparable<Joueur> {
 	public int getPoints() {
 		return points;
 	}
+
+	@Override
+	public void resetScore() {
+		points = 0;
+	}
 }
