@@ -6,12 +6,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.socgen.lyxor.kata.tennis.impl.JoueurImpl;
+
 public class JoeurTest {
 	Joueur joueur;
 
 	@Before
 	public void init() {
-		joueur = new Joueur("LYX");
+		joueur = new JoueurImpl("LYX");
 	}
 
 	@Test
