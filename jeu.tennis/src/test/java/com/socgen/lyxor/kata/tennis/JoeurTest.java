@@ -21,4 +21,14 @@ public class JoeurTest {
 		IntStream.range(0, 6).forEach(i -> joueur.gagnerPoint());
 		Assert.assertEquals(joueur.getPoints(), 6);
 	}
+
+	@Test
+	public void resetScoreTest() {
+		joueur.gagnerPoint();
+		joueur.gagnerPoint();
+		joueur.gagnerPoint();
+		Assert.assertEquals(joueur.getPoints(), 3);
+		joueur.resetScore();
+		Assert.assertEquals(joueur.getPoints(), 0);
+	}
 }
