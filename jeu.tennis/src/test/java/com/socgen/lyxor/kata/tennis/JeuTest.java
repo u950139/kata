@@ -14,6 +14,7 @@ import com.socgen.lyxor.kata.tennis.impl.JoueurImpl;
 
 public class JeuTest {
 	private Jeu				jeu;
+	private PointProvider pointProvider = new RandomPointProvider();
 	private final Joueur	j1	= new JoueurImpl("YMB");
 	private final Joueur	j2	= new JoueurImpl("LYXOR");
 
@@ -93,6 +94,12 @@ public class JeuTest {
 		assertEquals("J2 doit avoir AVANTAGE", "LYXOR- ADV / YMB- 40", jeu.getScore());
 		j2.gagnerPoint();
 		assertEquals("LYXOR- Gagne / YMB- 40", jeu.getScore());
-
+	}
+	
+	@Test
+	public void randomPlay() {
+		jeu.setPointProvider(randomPointProvider);
+		jeu.play();
+		assertEquals(true, jeu.end());
 	}
 }
