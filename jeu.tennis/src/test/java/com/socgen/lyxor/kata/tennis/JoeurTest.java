@@ -35,16 +35,16 @@ public class JoeurTest {
 
 	@Test
 	public void getScoreTest() {
-		assertEquals(0, joueur.getScore());
+		assertEquals(0, joueur.getScore().intValue());
 		joueur.gagnerPoint();
-		assertEquals(15, joueur.getScore());
+		assertEquals(15, joueur.getScore().intValue());
 		joueur.gagnerPoint();
-		assertEquals(30, joueur.getScore());
+		assertEquals(30, joueur.getScore().intValue());
 		joueur.gagnerPoint();
-		assertEquals(40, joueur.getScore());
+		assertEquals(40, joueur.getScore().intValue());
 		joueur.gagnerPoint();
-		assertEquals(40, joueur.getScore());
+		assertEquals(40, joueur.getScore().intValue());
 		joueur.gagnerPoint();
-		assertEquals(40, joueur.getScore());
+		assertEquals(40, joueur.getScore().intValue());
 	}
 }

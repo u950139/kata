@@ -44,7 +44,7 @@ public class JoueurImpl implements Joueur, Comparable<Joueur> {
 	}
 
 	@Override
-	public int getScore() {
+	public Integer getScore() {
 		if (points <= 3)
 			return SCORE[points];
 		return SCORE[3];
