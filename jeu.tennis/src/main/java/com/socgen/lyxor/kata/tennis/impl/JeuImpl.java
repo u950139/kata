@@ -52,8 +52,37 @@ public class JeuImpl extends PlayableSupport implements Jeu, Comparable<Jeu> {
 
 	@Override
 	public String getScore() {
-		// TODO Auto-generated method stub
-		return null;
+		switch (getStatus()) {
+		case DEUCE:
+			return Status.DEUCE.name();
+		case GAGNE:
+			return getJoueurAvantageux().getPseudo() + "- Gagne / " + getJoueurNonAvantageux().getPseudo() + "- "
+			        + (getJoueurNonAvantageux().getScore() == 0 ? "LOVE" : getJoueurNonAvantageux().getScore());
+		case AVANTAGE:
+			return getJoueurAvantageux().getPseudo() + "- ADV / " + getJoueurNonAvantageux().getPseudo() + "- "
+			        + getJoueurNonAvantageux().getScore();
+		default:
+			break;
+		}
+
+		return getJoueur1().getPseudo() + "-" + (getJoueur1().getScore() == 0 ? "LOVE" : getJoueur1().getScore())
+		        + " / " + getJoueur2().getPseudo() + "-"
+		        + (getJoueur2().getScore() == 0 ? "LOVE" : getJoueur2().getScore());
+	}
+
+	public Joueur getJoueurAvantageux() {
+		if (joueur1.getScore() <= 3 && joueur2.getScore() <= 3) {
+			return null;
+		}
+		return (joueur1.getScore() > joueur2.getScore() ? joueur1 : joueur2);
+	}
+
+	public Joueur getJoueurNonAvantageux() {
+
+		if (getJoueurAvantageux().equals(joueur1)) {
+			return joueur2;
+		}
+		return joueur1;
 	}
 
 	@Override
