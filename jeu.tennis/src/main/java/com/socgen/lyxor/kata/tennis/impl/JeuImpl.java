@@ -3,14 +3,12 @@ package com.socgen.lyxor.kata.tennis.impl;
 import com.socgen.lyxor.kata.tennis.Jeu;
 import com.socgen.lyxor.kata.tennis.Joueur;
 
-public class JeuImpl implements Jeu, Comparable<Jeu> {
-	protected Joueur	joueur1, joueur2;
-	private Integer		id;
+public class JeuImpl extends PlayableSupport implements Jeu, Comparable<Jeu> {
+
+	private Integer id;
 
 	public JeuImpl(Joueur joueur1, Joueur joueur2, Integer id) {
-		super();
-		this.joueur1 = joueur1;
-		this.joueur2 = joueur2;
+		super(joueur1, joueur2);
 		this.id = id;
 	}
 
@@ -28,17 +26,17 @@ public class JeuImpl implements Jeu, Comparable<Jeu> {
 	}
 
 	@Override
-	public String getStatus() {
+	public Status getStatus() {
 		if (joueur1.getPoints() >= 3 || joueur2.getPoints() >= 3) {
 			if (end()) {
-				return "GAGNE";
+				return Status.GAGNE;
 			} else if (joueur1.getPoints() == joueur2.getPoints()) {
-				return "DEUCE";
+				return Status.DEUCE;
 			} else {
-				return "AVANTAGE";
+				return Status.AVANTAGE;
 			}
 		}
-		return "CONTINUE";
+		return Status.CONTINUE;
 	}
 
 	private boolean end() {

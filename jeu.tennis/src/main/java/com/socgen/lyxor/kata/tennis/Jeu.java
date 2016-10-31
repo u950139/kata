@@ -1,7 +1,11 @@
 package com.socgen.lyxor.kata.tennis;
 
 public interface Jeu {
-	String getStatus();
+	Status getStatus();
 
 	Integer getId();
+
+	public enum Status {
+		DEUCE, AVANTAGE, GAGNE, CONTINUE;
+	}
 }
