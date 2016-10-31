@@ -43,6 +43,24 @@ public class JeuTest {
 	}
 
 	@Test
+	public void jeuDeuceEtGagneTest() {
+		IntStream.range(0, 3).forEach(new IntConsumer() {
+			@Override
+			public void accept(int value) {
+				j1.gagnerPoint();
+				j2.gagnerPoint();
+			}
+		});
+
+		assertEquals(Status.DEUCE, jeu.getStatus());
+
+		j2.gagnerPoint();
+		assertEquals("J2 doit avoir AVANTAGE", Status.AVANTAGE, jeu.getStatus());
+		j2.gagnerPoint();
+		assertEquals("Le jeu doit être gagné", Status.GAGNE, jeu.getStatus());
+	}
+
+	@Test
 	public void resetScoreTest() {
 		IntStream.range(0, 3).forEach(new IntConsumer() {
 			@Override
