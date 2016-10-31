@@ -40,4 +40,18 @@ public class JeuTest {
 		j1.gagnerPoint();
 		assertEquals("Le jeu doit revenir a DEUCE", "DEUCE", jeu.getStatus());
 	}
+
+	@Test
+	public void resetScoreTest() {
+		IntStream.range(0, 3).forEach(new IntConsumer() {
+			@Override
+			public void accept(int value) {
+				j1.gagnerPoint();
+				j2.gagnerPoint();
+			}
+		});
+		jeu.resetScore();
+		assertEquals(0, j1.getScore().intValue());
+		assertEquals(0, j2.getScore().intValue());
+	}
 }
