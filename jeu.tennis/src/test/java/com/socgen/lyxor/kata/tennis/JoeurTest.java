@@ -42,5 +42,9 @@ public class JoeurTest {
 		assertEquals(30, joueur.getScore());
 		joueur.gagnerPoint();
 		assertEquals(40, joueur.getScore());
+		joueur.gagnerPoint();
+		assertEquals(40, joueur.getScore());
+		joueur.gagnerPoint();
+		assertEquals(40, joueur.getScore());
 	}
 }

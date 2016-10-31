@@ -3,8 +3,9 @@ package com.socgen.lyxor.kata.tennis.impl;
 import com.socgen.lyxor.kata.tennis.Joueur;
 
 public class JoueurImpl implements Joueur, Comparable<Joueur> {
-	private Integer	points	= 0;
-	private String	pseudo;
+	private Integer				points	= 0;
+	private String				pseudo;
+	private static final int[]	SCORE	= { 0, 15, 30, 40 };
 
 	@Override
 	public String getPseudo() {
@@ -40,5 +41,12 @@ public class JoueurImpl implements Joueur, Comparable<Joueur> {
 	@Override
 	public void resetScore() {
 		points = 0;
+	}
+
+	@Override
+	public int getScore() {
+		if (points <= 3)
+			return SCORE[points];
+		return SCORE[3];
 	}
 }

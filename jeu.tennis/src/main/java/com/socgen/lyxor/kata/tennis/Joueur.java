@@ -8,4 +8,6 @@ public interface Joueur {
 	String getPseudo();
 
 	void resetScore();
+
+	int getScore();
 }
