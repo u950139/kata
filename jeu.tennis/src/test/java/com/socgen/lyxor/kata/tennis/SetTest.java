@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.socgen.lyxor.kata.tennis.impl.JoueurImpl;
+import com.socgen.lyxor.kata.tennis.impl.SetImpl;
 
 public class SetTest {
 

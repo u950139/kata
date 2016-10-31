@@ -1,6 +1,7 @@
 package com.socgen.lyxor.kata.tennis.impl;
 
 import com.socgen.lyxor.kata.tennis.Joueur;
+import com.socgen.lyxor.kata.tennis.Set;
 
 public class JoueurImpl implements Joueur, Comparable<Joueur> {
 	private Integer				points	= 0;
@@ -48,5 +49,15 @@ public class JoueurImpl implements Joueur, Comparable<Joueur> {
 		if (points <= 3)
 			return SCORE[points];
 		return SCORE[3];
+	}
+	Set setCourant;
+	@Override
+	public Set getSetCourant() {
+		return setCourant;
+	}
+
+	@Override
+	public void setSetCourant(Set setCourant) {
+		this.setCourant = setCourant;
 	}
 }

@@ -2,10 +2,12 @@ package com.socgen.lyxor.kata.tennis.impl;
 
 import com.socgen.lyxor.kata.tennis.Jeu;
 import com.socgen.lyxor.kata.tennis.Joueur;
+import com.socgen.lyxor.kata.tennis.PointProvider;
 
 public class JeuImpl extends PlayableSupport implements Jeu, Comparable<Jeu> {
 
 	private Integer id;
+	private PointProvider pointProvider;
 
 	public JeuImpl(Joueur joueur1, Joueur joueur2, Integer id) {
 		super(joueur1, joueur2);
@@ -93,7 +95,36 @@ public class JeuImpl extends PlayableSupport implements Jeu, Comparable<Jeu> {
 
 	@Override
 	public void afficherScore() {
-		// TODO Auto-generated method stub
+		System.out.println("\n" + getScore());
+	}
 
+	@Override
+	public void play() {
+		int key = pointProvider.providePoint();
+		switch (key) {
+		case 0:
+			System.exit(key);
+			break;
+		case 1:
+			joueur1.gagnerPoint();
+			break;
+		case 2:
+			joueur2.gagnerPoint();
+			break;
+		case 9:
+			afficherScore();
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public Joueur[] getJoeurs() {
+		return new Joueur[] { joueur1, joueur2 };
+	}
+
+	@Override
+	public void setPointProvider(PointProvider pointProvider) {
+		this.pointProvider=pointProvider;
 	}
 }

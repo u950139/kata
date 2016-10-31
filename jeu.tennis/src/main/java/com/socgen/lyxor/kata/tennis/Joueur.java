@@ -7,4 +7,8 @@ public interface Joueur extends Scoreable<Integer> {
 
 	String getPseudo();
 
+	Set getSetCourant();
+
+	void setSetCourant(Set setCourant);
+
 }

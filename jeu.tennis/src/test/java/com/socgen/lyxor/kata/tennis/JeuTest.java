@@ -11,10 +11,11 @@ import org.junit.Test;
 import com.socgen.lyxor.kata.tennis.Jeu.Status;
 import com.socgen.lyxor.kata.tennis.impl.JeuImpl;
 import com.socgen.lyxor.kata.tennis.impl.JoueurImpl;
+import com.socgen.lyxor.kata.tennis.impl.provider.RandomPointProvider;
 
 public class JeuTest {
 	private Jeu				jeu;
-	private PointProvider pointProvider = new RandomPointProvider();
+	private PointProvider 	randomPointProvider = new RandomPointProvider();
 	private final Joueur	j1	= new JoueurImpl("YMB");
 	private final Joueur	j2	= new JoueurImpl("LYXOR");
 
@@ -99,7 +100,8 @@ public class JeuTest {
 	@Test
 	public void randomPlay() {
 		jeu.setPointProvider(randomPointProvider);
-		jeu.play();
+		while(!jeu.end())
+			jeu.play();
 		assertEquals(true, jeu.end());
 	}
 }
