@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.socgen.lyxor.kata.tennis.Jeu.Status;
 import com.socgen.lyxor.kata.tennis.impl.JeuImpl;
 import com.socgen.lyxor.kata.tennis.impl.JoueurImpl;
 
@@ -33,12 +34,12 @@ public class JeuTest {
 			}
 		});
 
-		assertEquals("DEUCE", jeu.getStatus());
+		assertEquals(Status.DEUCE, jeu.getStatus());
 
 		j2.gagnerPoint();
-		assertEquals("J2 doit avoir AVANTAGE", "AVANTAGE", jeu.getStatus());
+		assertEquals("J2 doit avoir AVANTAGE", Status.AVANTAGE, jeu.getStatus());
 		j1.gagnerPoint();
-		assertEquals("Le jeu doit revenir a DEUCE", "DEUCE", jeu.getStatus());
+		assertEquals("Le jeu doit revenir a DEUCE", Status.DEUCE, jeu.getStatus());
 	}
 
 	@Test
