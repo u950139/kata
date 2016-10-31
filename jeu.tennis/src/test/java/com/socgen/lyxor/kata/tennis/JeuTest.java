@@ -73,4 +73,26 @@ public class JeuTest {
 		assertEquals(0, j1.getScore().intValue());
 		assertEquals(0, j2.getScore().intValue());
 	}
+
+	@Test
+	public void getScoreTest() {
+		j1.gagnerPoint();
+		assertEquals("YMB-15 / LYXOR-LOVE", jeu.getScore());
+		j1.resetScore();
+		IntStream.range(0, 3).forEach(new IntConsumer() {
+			@Override
+			public void accept(int value) {
+				j1.gagnerPoint();
+				j2.gagnerPoint();
+			}
+		});
+
+		assertEquals("DEUCE", jeu.getScore());
+
+		j2.gagnerPoint();
+		assertEquals("J2 doit avoir AVANTAGE", "LYXOR- ADV / YMB- 40", jeu.getScore());
+		j2.gagnerPoint();
+		assertEquals("LYXOR- Gagne / YMB- 40", jeu.getScore());
+
+	}
 }
