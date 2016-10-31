@@ -30,8 +30,7 @@ public class JeuImpl implements Jeu, Comparable<Jeu> {
 	@Override
 	public String getStatus() {
 		if (joueur1.getPoints() >= 3 || joueur2.getPoints() >= 3) {
-			if ((joueur1.getPoints() > 3 || joueur2.getPoints() > 3)
-			        && Math.abs(joueur1.getPoints() - joueur2.getPoints()) > 1) {
+			if (end()) {
 				return "GAGNE";
 			} else if (joueur1.getPoints() == joueur2.getPoints()) {
 				return "DEUCE";
@@ -40,6 +39,11 @@ public class JeuImpl implements Jeu, Comparable<Jeu> {
 			}
 		}
 		return "CONTINUE";
+	}
+
+	private boolean end() {
+		return (joueur1.getPoints() > 3 || joueur2.getPoints() > 3)
+		        && Math.abs(joueur1.getPoints() - joueur2.getPoints()) > 1;
 	}
 
 	@Override
