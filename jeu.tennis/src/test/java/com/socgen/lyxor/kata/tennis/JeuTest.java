@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.socgen.lyxor.kata.tennis.impl.JeuImpl;
 import com.socgen.lyxor.kata.tennis.impl.JoueurImpl;
 
 public class JeuTest {
