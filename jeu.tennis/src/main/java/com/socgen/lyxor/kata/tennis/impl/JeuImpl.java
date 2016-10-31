@@ -39,7 +39,8 @@ public class JeuImpl extends PlayableSupport implements Jeu, Comparable<Jeu> {
 		return Status.CONTINUE;
 	}
 
-	private boolean end() {
+	@Override
+	public boolean end() {
 		return (joueur1.getPoints() > 3 || joueur2.getPoints() > 3)
 		        && Math.abs(joueur1.getPoints() - joueur2.getPoints()) > 1;
 	}
@@ -47,5 +48,23 @@ public class JeuImpl extends PlayableSupport implements Jeu, Comparable<Jeu> {
 	@Override
 	public int compareTo(Jeu o) {
 		return this.id.compareTo(o.getId());
+	}
+
+	@Override
+	public String getScore() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void resetScore() {
+		joueur1.resetScore();
+		joueur2.resetScore();
+	}
+
+	@Override
+	public void afficherScore() {
+		// TODO Auto-generated method stub
+
 	}
 }

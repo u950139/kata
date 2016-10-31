@@ -1,8 +1,9 @@
 package com.socgen.lyxor.kata.tennis.impl;
 
 import com.socgen.lyxor.kata.tennis.Joueur;
+import com.socgen.lyxor.kata.tennis.Playable;
 
-public abstract class PlayableSupport {
+public abstract class PlayableSupport implements Playable {
 
 	protected Joueur joueur1, joueur2;
 

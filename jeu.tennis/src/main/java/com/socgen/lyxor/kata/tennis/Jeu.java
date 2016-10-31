@@ -1,6 +1,6 @@
 package com.socgen.lyxor.kata.tennis;
 
-public interface Jeu {
+public interface Jeu extends Scoreable<String> {
 	Status getStatus();
 
 	Integer getId();
