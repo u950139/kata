@@ -96,10 +96,12 @@ public class JeuImpl extends PlayableSupport implements Jeu, Comparable<Jeu> {
 	@Override
 	public void afficherScore() {
 		System.out.println("\n" + getScore());
+		joueur1.getSetCourant().afficherScore();
 	}
 
 	@Override
 	public void play() {
+
 		int key = pointProvider.providePoint();
 		switch (key) {
 		case 0:

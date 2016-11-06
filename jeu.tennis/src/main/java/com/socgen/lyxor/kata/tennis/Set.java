@@ -8,4 +8,6 @@ public interface Set extends Playable, Scoreable<Map<Joueur, Integer>> {
 	boolean isTieBreak();
 
 	Jeu getJeuCourant();
+
+	void setPointProvider(PointProvider pointProvider);
 }

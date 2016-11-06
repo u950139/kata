@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.socgen.lyxor.kata.tennis.Jeu;
 import com.socgen.lyxor.kata.tennis.Joueur;
+import com.socgen.lyxor.kata.tennis.PointProvider;
 import com.socgen.lyxor.kata.tennis.Set;
 
 public class SetImpl extends PlayableSupport implements Set {
@@ -14,6 +15,7 @@ public class SetImpl extends PlayableSupport implements Set {
 	private int						nombreJeux	= 1;
 	private Jeu						jeuCourant;
 	public boolean					tieBreak	= false;
+	private PointProvider			pointProvider;
 
 	public SetImpl(Joueur joueur1, Joueur joueur2, int numero) {
 		super(joueur1, joueur2);
@@ -21,6 +23,7 @@ public class SetImpl extends PlayableSupport implements Set {
 		joueur2.setSetCourant(this);
 		this.numero = numero;
 		jeuCourant = new JeuImpl(joueur1, joueur2, 1);
+		jeuCourant.setPointProvider(pointProvider);
 	}
 
 	@Override
@@ -49,6 +52,7 @@ public class SetImpl extends PlayableSupport implements Set {
 		initScore();
 		while (!end()) {
 			jeuCourant = new JeuImpl(joueur1, joueur2, nombreJeux);
+			jeuCourant.setPointProvider(pointProvider);
 			jeuCourant.resetScore();
 			while (!jeuCourant.end()) {
 				jeuCourant.play();
@@ -90,6 +94,11 @@ public class SetImpl extends PlayableSupport implements Set {
 	@Override
 	public Jeu getJeuCourant() {
 		return jeuCourant;
+	}
+
+	@Override
+	public void setPointProvider(PointProvider pointProvider) {
+		this.pointProvider = pointProvider;
 	}
 
 }
