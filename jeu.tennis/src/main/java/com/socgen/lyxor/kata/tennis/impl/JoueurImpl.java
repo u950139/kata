@@ -19,8 +19,7 @@ public class JoueurImpl implements Joueur, Comparable<Joueur> {
 	}
 
 	public JoueurImpl(String pseudo) {
-		super();
-		assert pseudo != null && pseudo.length() > 3;
+		super();		
 		this.pseudo = pseudo;
 	}
 
